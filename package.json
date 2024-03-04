@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "test": "ts-node t.ts"
+    "test": "ts-node t.ts",
+    "token": "ts-node token.ts",
+    "lockSol": "ts-node lockSol.ts"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +17,7 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "@solana/spl-token": "^0.4.1",
     "@solana/web3.js": "^1.90.1"
   }
 }
