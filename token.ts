@@ -1,45 +1,20 @@
 import {
   Keypair,
-  SystemInstruction,
-  SystemProgram,
   Transaction,
-  Connection,
-  LAMPORTS_PER_SOL,
   sendAndConfirmTransaction,
 } from "@solana/web3.js";
+
 import {
-  createAssociatedTokenAccount,
-  createAssociatedTokenAccountInstruction,
   createMint,
   createTransferInstruction,
-  getAssociatedTokenAddress,
   getOrCreateAssociatedTokenAccount,
   mintTo,
-  NATIVE_MINT,
-  transfer,
 } from "@solana/spl-token";
 
+import { connection, pair } from "./const";
+
 const main = async () => {
-  const connection = new Connection("http://127.0.0.1:8899", "confirmed");
-  const pair = Keypair.generate();
-  console.log(pair.secretKey.toString());
   console.log("operate address : ", pair.publicKey.toBase58());
-
-  const airdropSignature = await connection.requestAirdrop(
-    pair.publicKey,
-    LAMPORTS_PER_SOL * 10
-  );
-  console.log(airdropSignature);
-
-  const latestBlockHash = await connection.getLatestBlockhash();
-  await connection.confirmTransaction(
-    {
-      blockhash: latestBlockHash.blockhash,
-      lastValidBlockHeight: latestBlockHash.lastValidBlockHeight,
-      signature: airdropSignature,
-    },
-    "finalized"
-  );
 
   const mintAuthority = Keypair.generate();
   const freezeAuthority = Keypair.generate();

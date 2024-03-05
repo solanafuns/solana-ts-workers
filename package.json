@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "test": "ts-node t.ts",
+    "init": "ts-node init.ts",
+    "basic": "ts-node basic.ts",
     "token": "ts-node token.ts",
+    "tokenWithMeta": "ts-node tokenWithMeta.ts",
     "lockSol": "ts-node lockSol.ts"
   },
   "keywords": [],
@@ -17,7 +19,12 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "@metaplex-foundation/mpl-candy-machine": "^6.0.1",
+    "@metaplex-foundation/mpl-token-metadata": "^3.2.0",
+    "@metaplex-foundation/umi": "^0.9.1",
+    "@metaplex-foundation/umi-bundle-defaults": "^0.9.1",
     "@solana/spl-token": "^0.4.1",
-    "@solana/web3.js": "^1.90.1"
+    "@solana/web3.js": "^1.90.1",
+    "bs58": "^5.0.0"
   }
 }
